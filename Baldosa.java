@@ -1,24 +1,23 @@
 public class Baldosa {
-    public char baldosa;
+    public int baldosa;
     public Baldosa() {
         this.baldosa = inicializaEstado();
     }
 
-    private char inicializaEstado(){
+    private int inicializaEstado(){
         double probabilidadMugre = Math.random();
         if (probabilidadMugre<=0.01) {
-            return '#';
+            return 3;
         } else if (probabilidadMugre<0.04) {
-            return '*';
+            return 2;
         } else if (probabilidadMugre<0.07) {
-            return '·';
+            return 1;
         } else {
-            return ' ';
+            return 0;
         }        
     }
 
-    public char ver(){
+    public int ver(){
         return this.baldosa;
     }
-
 }

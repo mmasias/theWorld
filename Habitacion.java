@@ -15,15 +15,21 @@ public class Habitacion {
     }
 
     public void imprimir() {
+        char vistaBaldosa;
+        borraPantalla();
+        imprimeLinea();        
         for (int i=0;i<this.largo;i++){
             for (int j=0;j<this.ancho;j++) {
-                System.out.print("["+this.baldosas[i][j].ver()+"]"); 
+                vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
+                System.out.print("["+vistaBaldosa+"]"); 
             }
             System.out.println();
         }
+        imprimeLinea();
     }
 
     public void imprimir(Gato gato) {
+        char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
         for (int i=0;i<this.largo;i++){
@@ -31,7 +37,8 @@ public class Habitacion {
                 if ((gato.posicionX==j) && (gato.posicionY==i)) {
                     System.out.print(">G<");
                 } else {
-                    System.out.print("["+this.baldosas[i][j].ver()+"]"); 
+                    vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
+                    System.out.print("["+vistaBaldosa+"]"); 
                 }
             }
             System.out.println();
@@ -40,7 +47,9 @@ public class Habitacion {
     }
 
     public void ensuciar(int posicionX, int posicionY){
-        this.baldosas[posicionY][posicionX].baldosa='#';
+        if (this.baldosas[posicionY][posicionX].baldosa<4) {
+            this.baldosas[posicionY][posicionX].baldosa++;
+        }
     }
 
     private void imprimeLinea(){

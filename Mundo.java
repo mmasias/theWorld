@@ -12,9 +12,9 @@ class Mundo{
 
     public void empezar(){
         do {
-            gato.mover(this.habitacion);
-            gato.ensuciar(this.habitacion);
-            this.habitacion.imprimir(gato);
+            this.gato.mover(this.habitacion);
+            this.gato.ensuciar(this.habitacion);
+            this.habitacion.imprimir(this.gato);
         } while (!entrada.nextLine().equalsIgnoreCase("f")); 
     }
 
