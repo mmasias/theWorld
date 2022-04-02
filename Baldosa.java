@@ -6,15 +6,17 @@ public class Baldosa {
 
     private int inicializaEstado(){
         double probabilidadMugre = Math.random();
+        int estado;
         if (probabilidadMugre<=0.01) {
-            return 3;
+            estado = 3;
         } else if (probabilidadMugre<0.04) {
-            return 2;
+            estado = 2;
         } else if (probabilidadMugre<0.07) {
-            return 1;
+            estado = 1;
         } else {
-            return 0;
-        }        
+            estado = 0;
+        }
+        return estado;        
     }
 
     public int ver(){

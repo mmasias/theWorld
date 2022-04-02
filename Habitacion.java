@@ -1,6 +1,6 @@
 public class Habitacion {
 
-    Baldosa[][] baldosas;
+    private Baldosa[][] baldosas;
     public int largo, ancho;
 
     public Habitacion(int largo, int ancho) {
@@ -34,7 +34,7 @@ public class Habitacion {
         imprimeLinea();
         for (int i=0;i<this.largo;i++){
             for (int j=0;j<this.ancho;j++) {
-                if ((gato.posicionX==j) && (gato.posicionY==i)) {
+                if (gato.posicionX==j && gato.posicionY==i) {
                     System.out.print(">G<");
                 } else {
                     vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
