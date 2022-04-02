@@ -38,7 +38,7 @@ public class Habitacion {
                     System.out.print(">G<");
                 } else {
                     vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
-                    System.out.print("["+vistaBaldosa+"]"); 
+                    System.out.print(" "+vistaBaldosa+" "); 
                 }
             }
             System.out.println();
