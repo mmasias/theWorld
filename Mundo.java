@@ -1,9 +1,9 @@
 import java.util.Scanner;
 class Mundo{
 
-    Scanner entrada = new Scanner(System.in);
-    Habitacion habitacion;
-    Gato gato;
+    private Scanner entrada = new Scanner(System.in);
+    private Habitacion habitacion;
+    private Gato gato;
 
     public Mundo(){
         habitacion = new Habitacion(10,10);

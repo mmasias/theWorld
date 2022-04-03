@@ -47,9 +47,7 @@ public class Habitacion {
     }
 
     public void ensuciar(int posicionX, int posicionY){
-        if (this.baldosas[posicionY][posicionX].baldosa<4) {
-            this.baldosas[posicionY][posicionX].baldosa++;
-        }
+            this.baldosas[posicionY][posicionX].ensucia();
     }
 
     private void imprimeLinea(){
@@ -61,4 +59,3 @@ public class Habitacion {
     }
 
 }
-

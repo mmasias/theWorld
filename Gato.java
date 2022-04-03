@@ -1,6 +1,6 @@
 public class Gato {
 
-    int posicionX, posicionY;
+    public int posicionX, posicionY;
 
     public Gato(Habitacion habitacion) {
         this.posicionX = (int)(Math.random()*habitacion.ancho);

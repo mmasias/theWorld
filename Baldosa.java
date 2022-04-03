@@ -1,5 +1,7 @@
 public class Baldosa {
-    public int baldosa;
+   
+    private int baldosa;
+
     public Baldosa() {
         this.baldosa = inicializaEstado();
     }
@@ -22,4 +24,12 @@ public class Baldosa {
     public int ver(){
         return this.baldosa;
     }
+
+    public void ensucia(){
+        if(this.baldosa<4){
+            this.baldosa++;
+        };
+    }
+
+
 }
