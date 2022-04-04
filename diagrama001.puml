@@ -28,16 +28,31 @@ class Baldosa{
 }
 
 class Gato{
-    + posicionX: int
-    + posicionY: int
+
     + Gato(habitacion: Habitacion)
-    + mover(habitacion: Habitacion)
     + ensuciar(habitacion: Habitacion)
 }
 
+class Aspiradora{
+
+    + Aspiradora(habitacion: Habitacion)
+    + limpiar(habitacion: Habitacion)
+}
+
+abstract Elemento{
+    + posicionX: int
+    + posicionY: int
+    + mover(habitacion: Habitacion)
+}
+
+Elemento <|--- Gato 
+Elemento <|--- Aspiradora 
+
 Mundo *-D--> Habitacion
 Mundo *-R---> Gato
+Mundo *-L---> Aspiradora
 Habitacion *-D--> Baldosa 
 Habitacion ... Gato
+Habitacion ... Aspiradora
 
 @enduml
