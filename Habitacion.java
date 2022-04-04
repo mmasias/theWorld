@@ -14,7 +14,7 @@ public class Habitacion {
         }        
     }
 
-    public void imprimir() {
+/*    public void imprimir(Gato gato, Aspiradora aspiradora) {
         char vistaBaldosa;
         borraPantalla();
         imprimeLinea();        
@@ -27,8 +27,8 @@ public class Habitacion {
         }
         imprimeLinea();
     }
-
-    public void imprimir(Gato gato) {
+*/
+    public void imprimir(Gato gato, Aspiradora aspiradora) {
         char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
@@ -36,7 +36,10 @@ public class Habitacion {
             for (int j=0;j<this.ancho;j++) {
                 if (gato.posicionX==j && gato.posicionY==i) {
                     System.out.print(">G<");
-                } else {
+                } else if (aspiradora.posicionX==j && aspiradora.posicionY==i) {
+                    System.out.print("(O)");
+                } else 
+                {
                     vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
                     System.out.print(" "+vistaBaldosa+" "); 
                 }
@@ -49,6 +52,10 @@ public class Habitacion {
     public void ensuciar(int posicionX, int posicionY){
             this.baldosas[posicionY][posicionX].ensucia();
     }
+
+    public void limpiar(int posicionX, int posicionY){
+        this.baldosas[posicionY][posicionX].limpia();
+}
 
     private void imprimeLinea(){
         for (int j=0;j<this.ancho;j++) {System.out.print("===");} System.out.println();

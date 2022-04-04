@@ -31,5 +31,10 @@ public class Baldosa {
         };
     }
 
+    public void limpia(){
+        if(this.baldosa>0){
+            this.baldosa--;
+        };
+    }    
 
 }

@@ -22,7 +22,7 @@ class Habitacion {
 class Baldosa{
     - baldosa: int
     + Baldosa()
-    - int inicializaEstado()
+    - inicializaEstado(): int
     + int ver()
     + ensucia()
 }
