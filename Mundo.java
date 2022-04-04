@@ -6,7 +6,7 @@ class Mundo{
     private Gato gato;
 
     public Mundo(){
-        habitacion = new Habitacion(10,10);
+        habitacion = new Habitacion(15,20);
         gato = new Gato(habitacion);
     }
 
@@ -14,7 +14,7 @@ class Mundo{
         do {
             this.gato.mover(this.habitacion);
             this.gato.ensuciar(this.habitacion);
-            this.habitacion.imprimir(this.gato);
+            this.habitacion.imprimir(gato);
         } while (!entrada.nextLine().equalsIgnoreCase("f")); 
     }
 

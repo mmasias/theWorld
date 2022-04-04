@@ -21,7 +21,7 @@ public class Habitacion {
         for (int i=0;i<this.largo;i++){
             for (int j=0;j<this.ancho;j++) {
                 vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
-                System.out.print("["+vistaBaldosa+"]"); 
+                System.out.print(" "+vistaBaldosa+" "); 
             }
             System.out.println();
         }
