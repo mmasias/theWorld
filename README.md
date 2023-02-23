@@ -2,8 +2,8 @@
 
 <div align=center>
 
-||
--|
-![](theWorld.png)|
+|||
+-|-
+![](theWorld.png)|![](powershell.png)
 
 </div>
