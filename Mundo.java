@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 class Mundo {
 
-    private Scanner entrada = new Scanner(System.in);
     private Habitacion habitacion;
     private Gato gato;
 
@@ -11,12 +10,17 @@ class Mundo {
         gato = new Gato(habitacion);
     }
 
-    public void empezar() {
+    void empezar() {
         do {
             gato.mover(habitacion);
             gato.ensuciar(habitacion);
             habitacion.imprimir(gato);
-        } while (!entrada.nextLine().equalsIgnoreCase("f"));
+        } while (quiereSeguir());
+    }
+
+    boolean quiereSeguir(){
+        Scanner entrada = new Scanner(System.in);
+        return !entrada.nextLine().equalsIgnoreCase("f");
     }
 
     public static void main(String[] args) {
