@@ -2,20 +2,23 @@ public class Baldosa {
 
     private int estado;
 
+    private static final int LIMPIO = 0;
+    private static final int SUCIO = 3;
+    private static final double[] PROBABILIDADES = {0.1, 0.2, 0.7, 0.9};
+
     public Baldosa() {
         estado = inicializaEstado();
     }
 
     private int inicializaEstado() {
         double probabilidadMugre = Math.random();
-        if (probabilidadMugre <= 0.01) {
-            return 3;
-        } else if (probabilidadMugre < 0.04) {
-            return 2;
-        } else if (probabilidadMugre < 0.07) {
-            return 1;
+
+        for (int i = SUCIO; i >= LIMPIO; i--) {
+            if (probabilidadMugre >= PROBABILIDADES[i]) {
+                return i;
+            }
         }
-        return 0;
+        return LIMPIO;
     }
 
     public int ver() {
