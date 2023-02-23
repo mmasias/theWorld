@@ -1,6 +1,6 @@
 public class Baldosa {
-   
-    private int baldosa;
+
+   private int baldosa;
 
     public Baldosa() {
         this.baldosa = inicializaEstado();
@@ -30,6 +30,4 @@ public class Baldosa {
             this.baldosa++;
         };
     }
-
-
 }
