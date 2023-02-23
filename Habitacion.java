@@ -6,22 +6,22 @@ public class Habitacion {
     public Habitacion(int largo, int ancho) {
         this.largo = largo;
         this.ancho = ancho;
-        baldosas=new Baldosa[largo][ancho];
-        for (int i=0;i<this.largo;i++){
-            for (int j=0;j<this.ancho;j++) {
+        baldosas = new Baldosa[this.largo][this.ancho];
+        for (int i = 0; i < this.largo; i++) {
+            for (int j = 0; j < this.ancho; j++) {
                 this.baldosas[i][j] = new Baldosa();
             }
-        }        
+        }
     }
 
     public void imprimir() {
         char vistaBaldosa;
         borraPantalla();
-        imprimeLinea();        
-        for (int i=0;i<this.largo;i++){
-            for (int j=0;j<this.ancho;j++) {
+        imprimeLinea();
+        for (int i = 0; i < largo; i++) {
+            for (int j = 0; j < this.ancho; j++) {
                 vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
-                System.out.print(" "+vistaBaldosa+" "); 
+                System.out.print(" " + vistaBaldosa + " ");
             }
             System.out.println();
         }
@@ -32,13 +32,13 @@ public class Habitacion {
         char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
-        for (int i=0;i<this.largo;i++){
-            for (int j=0;j<this.ancho;j++) {
-                if (gato.posicionX==j && gato.posicionY==i) {
+        for (int i = 0; i < largo; i++) {
+            for (int j = 0; j < ancho; j++) {
+                if (gato.posicionX == j && gato.posicionY == i) {
                     System.out.print(">G<");
                 } else {
-                    vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
-                    System.out.print(" "+vistaBaldosa+" "); 
+                    vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
+                    System.out.print(" " + vistaBaldosa + " ");
                 }
             }
             System.out.println();
@@ -46,16 +46,19 @@ public class Habitacion {
         imprimeLinea();
     }
 
-    public void ensuciar(int posicionX, int posicionY){
-            this.baldosas[posicionY][posicionX].ensucia();
+    public void ensuciar(int posicionX, int posicionY) {
+        baldosas[posicionY][posicionX].ensucia();
     }
 
-    private void imprimeLinea(){
-        for (int j=0;j<this.ancho;j++) {System.out.print("===");} System.out.println();
+    private void imprimeLinea() {
+        for (int j = 0; j < ancho; j++) {
+            System.out.print("===");
+        }
+        System.out.println();
     }
 
-    private void borraPantalla(){
-        System.out.print("\033[H\033[2J");System.out.flush();
+    private void borraPantalla() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
-
 }

@@ -35,9 +35,9 @@ class Gato{
     + ensuciar(habitacion: Habitacion)
 }
 
-Mundo *-D--> Habitacion
-Mundo *-R---> Gato
-Habitacion *-D--> Baldosa 
+Mundo *-D-- Habitacion
+Mundo *-R--- Gato
+Habitacion *-D-- Baldosa 
 Habitacion ... Gato
 
 @enduml
