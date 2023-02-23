@@ -20,7 +20,7 @@ class Habitacion {
 }
 
 class Baldosa{
-    - baldosa: int
+    - estado: int
     + Baldosa()
     - int inicializaEstado()
     + int ver()

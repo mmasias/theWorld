@@ -1,33 +1,30 @@
 public class Baldosa {
 
-    private int baldosa;
+    private int estado;
 
     public Baldosa() {
-        baldosa = inicializaEstado();
+        estado = inicializaEstado();
     }
 
     private int inicializaEstado() {
         double probabilidadMugre = Math.random();
-        int estado;
         if (probabilidadMugre <= 0.01) {
-            estado = 3;
+            return 3;
         } else if (probabilidadMugre < 0.04) {
-            estado = 2;
+            return 2;
         } else if (probabilidadMugre < 0.07) {
-            estado = 1;
-        } else {
-            estado = 0;
+            return 1;
         }
-        return estado;
+        return 0;
     }
 
     public int ver() {
-        return baldosa;
+        return estado;
     }
 
     public void ensucia() {
-        if (baldosa < 4) {
-            baldosa++;
+        if (estado < 4) {
+            estado++;
         }
     }
 }
