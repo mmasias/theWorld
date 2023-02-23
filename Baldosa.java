@@ -26,7 +26,7 @@ public class Baldosa {
     }
 
     public void ensucia() {
-        if (estado < MUY_SUCIO) {
+        if (estado <= MUY_SUCIO) {
             estado++;
         }
     }
