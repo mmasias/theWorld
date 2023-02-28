@@ -14,9 +14,8 @@ class Habitacion {
     + ancho: int
     + Habitacion(largo: int, ancho: int)
     + imprimir()
-    + ensuciar()
+    + ensuciar(posicionX: int,posicionY: int)
     - imprimeLinea()
-    - imprimeHabitacion()
     - borraPantalla()
 }
 
@@ -31,9 +30,9 @@ class Baldosa{
 class Gato{
     + posicionX: int
     + posicionY: int
-    + habitacion: Habitacion
     + Gato(habitacion: Habitacion)
     + mover()
+    + ensuciar()
 }
 
 Mundo *-D- Habitacion

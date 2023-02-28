@@ -2,10 +2,12 @@ public class Habitacion {
 
     private Baldosa[][] baldosas;
     public int largo, ancho;
+    public Gato gato;
 
     public Habitacion(int largo, int ancho) {
         this.largo = largo;
         this.ancho = ancho;
+        this.gato = new Gato(this);
         baldosas = new Baldosa[this.largo][this.ancho];
         for (int i = 0; i < this.largo; i++) {
             for (int j = 0; j < this.ancho; j++) {
@@ -15,39 +17,30 @@ public class Habitacion {
     }
 
     public void imprimir() {
-        char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
-        for (int i = 0; i < largo; i++) {
-            for (int j = 0; j < this.ancho; j++) {
-                vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
-                System.out.print(" " + vistaBaldosa + " ");
-            }
-            System.out.println();
-        }
+        imprimirHabitacion();
         imprimeLinea();
     }
 
-    public void imprimir(Gato gato) {
-        char vistaBaldosa;
-        borraPantalla();
-        imprimeLinea();
+    private void imprimirHabitacion() {
         for (int i = 0; i < largo; i++) {
             for (int j = 0; j < ancho; j++) {
                 if (gato.posicionX == j && gato.posicionY == i) {
-                    System.out.print(">G<");
+                    System.out.print(" \uD83D\uDE3A");
                 } else {
-                    vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
+                    char vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
                     System.out.print(" " + vistaBaldosa + " ");
                 }
             }
             System.out.println();
         }
-        imprimeLinea();
     }
 
-    public void ensuciar(int posicionX, int posicionY) {
-        baldosas[posicionY][posicionX].ensucia();
+    public void ensuciar() {
+        if (Math.random() > .75) {
+            baldosas[gato.posicionY][gato.posicionX].ensucia();
+        }
     }
 
     private void imprimeLinea() {
