@@ -1,0 +1,42 @@
+@startuml Clases
+
+class Mundo{
+    +Habitacion[] habitaciones
+
+    void ImprimirMundo()
+}
+
+
+class Habitacion {
+    +Baldosa[][] baldosas
+    +int largo
+    +int ancho
+
+    Habitacion(largo, ancho)
+    void ImprimirHabitacion()
+}
+
+class Baldosa {
+    +bool sucia
+
+    void Ensuciar()
+}
+
+
+class Gato {
+    +int posicionX
+    +int posicionY
+
+    void Mover(x, y)
+    void Mover(Habitacion, x, y)
+    bool Ensuciar()
+}
+
+Mundo --> Habitacion
+Habitacion --> Baldosa
+Baldosa --> Gato
+
+
+
+
+@enduml
