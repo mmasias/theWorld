@@ -1,9 +1,10 @@
 public class Habitacion {
 
     private Baldosa[][] baldosas;
+    private Gato[] gatos;
     public int largo, ancho;
 
-    public Habitacion(int largo, int ancho) {
+    public Habitacion(int largo, int ancho, int cantidadGatos) {
         this.largo = largo;
         this.ancho = ancho;
         baldosas = new Baldosa[this.largo][this.ancho];
@@ -12,6 +13,15 @@ public class Habitacion {
                 this.baldosas[i][j] = new Baldosa();
             }
         }
+
+        gatos = new Gato[cantidadGatos];
+        for (int i = 0; i < gatos.length; i++){
+            gatos[i] = new Gato();
+        }
+    }
+
+    public void avanzaDia(){
+        
     }
 
     public void imprimir() {
