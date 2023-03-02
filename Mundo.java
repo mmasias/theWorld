@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 class Mundo {
-
     private Habitacion habitacion;
     private Gato gato;
 

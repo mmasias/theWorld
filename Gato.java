@@ -1,5 +1,4 @@
 public class Gato {
-
     public int posicionX, posicionY;
 
     public Gato(Habitacion habitacion) {

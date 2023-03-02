@@ -1,0 +1,4 @@
+Mundo *-- Habitacion
+Mundo *-- Gato
+Habitacion *-- Baldosa 
+Habitacion .. Gato

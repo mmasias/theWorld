@@ -18,6 +18,7 @@ public class Baldosa {
                 return i;
             }
         }
+
         return LIMPIO;
     }
 
