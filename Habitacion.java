@@ -37,11 +37,11 @@ public class Habitacion {
         for(int i = 0; i < largo; i++){
             System.out.print('║');
             for(int j = 0; j < ancho; j++){
-                if(comprobarSiHayGato(j, i)) {
+                if(hayGato(j, i)) {
                     System.out.print(">G<");
                 }
                 else {
-                    System.out.print(parseSuciedad(baldosas[i][j].estadoDeSuciedad()));
+                    System.out.print(parsear(baldosas[i][j].suciedad()));
                 }
                
             }
@@ -51,20 +51,16 @@ public class Habitacion {
 
     }
 
-    private boolean comprobarSiHayGato(int posicionX, int posicionY) {
+    private boolean hayGato(int posicionX, int posicionY) {
         for (Gato gato : gatos) {
             if(posicionX == gato.posicionX && posicionY == gato.posicionY) return true;
         }
         return false;
     }
 
-    private String parseSuciedad(int nivel) {
-             if (nivel == 0) return "   ";
-        else if (nivel == 1) return " . ";
-        else if (nivel == 2) return " * ";
-        else if (nivel == 3) return " o ";
-        else if (nivel == 4) return " O ";
-        else return "eee";
+    private String parsear(int nivel) {
+        String opciones = " .o0#";
+        return " " + opciones.charAt(nivel) + " ";
     }
 
     private void printBorder(String border){
@@ -95,7 +91,7 @@ public class Habitacion {
     }
 
     public void ensuciarBaldosa(int posicionX, int posicionY){
-        baldosas[posicionY][posicionX].ensuciarBaldosa();
+        baldosas[posicionY][posicionX].ensuciar();
     }
 
     public void cambiarPosicionGato(Gato gato) {
