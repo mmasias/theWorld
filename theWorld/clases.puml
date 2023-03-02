@@ -3,7 +3,7 @@
 class Mundo{
     +Habitacion[] habitaciones
 
-    void empezar()
+    void Empezar()
 }
 
 
@@ -24,7 +24,7 @@ class Baldosa {
     +bool ocupada
 
     void Ensuciar()
-    bool EstaOcupada()
+    bool HayUnGato()
 }
 
 

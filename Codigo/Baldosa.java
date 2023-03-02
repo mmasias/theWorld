@@ -30,4 +30,8 @@ public class Baldosa {
             estado++;
         }
     }
+
+    public boolean HayUnGato(){
+        return false;
+    }
 }

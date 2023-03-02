@@ -5,7 +5,7 @@ class Mundo {
     private Habitacion habitacion;
 
     public Mundo() {
-        habitacion = new Habitacion(15, 20);
+        habitacion = new Habitacion(15, 20, 3);
     }
 
     void empezar() {
