@@ -19,10 +19,10 @@ class Habitacion {
     - comprobarSiHayGato()
     - parseSuciedad()
     - printBorder()
-    + limpiarPantalla()
+    - limpiarPantalla()
     + ensuciarBaldosa(int posicionX, int posicionY)
     + cambiarPosicionGato()
-    + posicionInicialGato()
+    - posicionInicialGato()
 }
 
 class Baldosa{
