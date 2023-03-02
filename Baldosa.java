@@ -1,10 +1,7 @@
 public class Baldosa {
-
     private int estado;
 
-    private static final int LIMPIO = 0;
-    private static final int MUY_SUCIO = 3;
-    private static final double[] PROBABILIDADES = {0.1, 0.2, 0.7, 0.9};
+    private Basura basura = new Basura();
 
     public Baldosa() {
         estado = inicializaEstado();
@@ -13,12 +10,12 @@ public class Baldosa {
     private int inicializaEstado() {
         double probabilidadMugre = Math.random();
 
-        for (int i = MUY_SUCIO; i >= LIMPIO; i--) {
-            if (probabilidadMugre >= PROBABILIDADES[i]) {
+        for (int i = Basura.MUY_SUCIO; i >= Basura.LIMPIO; i--) {
+            if (probabilidadMugre >= Basura.PROBABILIDADES[i]) {
                 return i;
             }
         }
-        return LIMPIO;
+        return Basura.LIMPIO;
     }
 
     public int ver() {
@@ -26,7 +23,7 @@ public class Baldosa {
     }
 
     public void ensucia() {
-        if (estado <= MUY_SUCIO) {
+        if (estado <= Basura.MUY_SUCIO) {
             estado++;
         }
     }

@@ -1,5 +1,4 @@
 public class Habitacion {
-
     private Baldosa[][] baldosas;
     public int largo, ancho;
 
@@ -28,13 +27,17 @@ public class Habitacion {
         imprimeLinea();
     }
 
-    public void imprimir(Gato gato) {
+    public void imprimir(Gato gato1,Gato gato2,Gato gato3) {
         char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
         for (int i = 0; i < largo; i++) {
             for (int j = 0; j < ancho; j++) {
-                if (gato.posicionX == j && gato.posicionY == i) {
+                if (gato1.posicion.posicionX == j && gato1.posicion.posicionY == i) {
+                    System.out.print(">G<");
+                }else if (gato2.posicion.posicionX == j && gato2.posicion.posicionY == i) {
+                    System.out.print(">G<");
+                }else if (gato3.posicion.posicionX == j && gato3.posicion.posicionY == i) {
                     System.out.print(">G<");
                 } else {
                     vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
