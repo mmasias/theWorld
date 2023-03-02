@@ -3,18 +3,14 @@ import java.util.Scanner;
 class Mundo {
 
     private Habitacion habitacion;
-    private Gato gato;
 
     public Mundo() {
-        habitacion = new Habitacion(15, 20);
-        gato = new Gato(habitacion);
+        habitacion = new Habitacion(15, 20, 3);
     }
 
     void empezar() {
         do {
-            gato.mover(habitacion);
-            gato.ensuciar(habitacion);
-            habitacion.imprimir(gato);
+            habitacion.avanzaDia();
         } while (quiereSeguir());
     }
 

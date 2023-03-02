@@ -1,9 +1,16 @@
 public class Habitacion {
 
-    private Baldosa[][] baldosas;
-    public int largo, ancho;
+    private int _ARRIBA = 1;
+    private int _ABAJO = 2;
+    private int _DERECHA = 3;
+    private int _IZQUIERDA = 4;
 
-    public Habitacion(int largo, int ancho) {
+    private Baldosa[][] baldosas;
+    private Gato[] gatos;
+    public int largo, ancho;
+    
+
+    public Habitacion(int largo, int ancho, int cantidadGatos) {
         this.largo = largo;
         this.ancho = ancho;
         baldosas = new Baldosa[this.largo][this.ancho];
@@ -11,6 +18,40 @@ public class Habitacion {
             for (int j = 0; j < this.ancho; j++) {
                 this.baldosas[i][j] = new Baldosa();
             }
+        }   
+
+        gatos = new Gato[cantidadGatos];
+        for (int i = 0; i < gatos.length; i++){
+            gatos[i] = new Gato();
+        }
+    }
+
+    public void avanzaDia(){
+        for (int i = 0; i < gatos.length; i++){
+            int posicionMoverseGato = gatos[i].dondeQuieresMoverte();
+
+            if (posicionMoverseGato == _ARRIBA /*&& noEstaFueraDeRango*/)
+                System.out.println("arriba");
+            
+            else if (posicionMoverseGato == _ABAJO)
+                System.out.println("abajo");
+            
+            else if (posicionMoverseGato == _DERECHA)
+                System.out.println("derecha");
+            
+            else
+                System.out.println("abajo");  
+        }
+
+        for (int i = 0; i < baldosas.length; i++){
+            for (int j = 0; j < baldosas[i].length; j++){
+                if (baldosas[i][j].HayUnGato()){
+                    
+                }
+            }
+        }
+        for (int i = 0; i < gatos.length; i++){
+            boolean ensucia = gatos[i].VasAEnsuciar;
         }
     }
 
