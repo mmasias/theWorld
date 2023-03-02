@@ -100,10 +100,10 @@ public class Habitacion {
 
     public void cambiarPosicionGato(Gato gato) {
         double aleatorio = Math.random();
-        if (aleatorio < .25 && gato.posicionX + 1 < this.ancho) gato.moverse('L');
-        else if (aleatorio < .5 && gato.posicionX > 0) gato.moverse('R');
+        if (aleatorio < .25 && gato.posicionX + 1 < this.ancho) gato.moverse('R');
+        else if (aleatorio < .5 && gato.posicionX - 1 > 0) gato.moverse('L');
         else if (aleatorio < .75 && gato.posicionY + 1 < this.largo) gato.moverse('D');
-        else if (aleatorio < 1 && gato.posicionY > 0) gato.moverse('U');
+        else if (aleatorio < 1 && gato.posicionY - 1 > 0) gato.moverse('U');
     }
 
     private Gato posicionInicialGato() {
