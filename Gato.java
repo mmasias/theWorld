@@ -1,28 +1,30 @@
 public class Gato {
+    public int posicionX;
+    public int posicionY;
 
-    public int posicionX, posicionY;
-
-    public Gato(Habitacion habitacion) {
-        posicionX = (int) (Math.random() * habitacion.ancho);
-        posicionY = (int) (Math.random() * habitacion.largo);
+    public Gato(int posicionX, int posicionY){
+        this.posicionX = posicionX;
+        this.posicionY = posicionY;
     }
 
-    public void mover(Habitacion habitacion) {
-        double aleatorio = Math.random();
-        if (aleatorio < .25 && posicionX + 1 < habitacion.ancho) {
-            posicionX++;
-        } else if (aleatorio < .5 && posicionX > 0) {
-            posicionX--;
-        } else if (aleatorio < .75 && posicionY + 1 < habitacion.largo) {
-            posicionY++;
-        } else if (aleatorio < 1 && posicionY > 0) {
-            posicionY--;
+    public void moverse(char direccion){
+        switch (direccion) {
+            case 'U':
+                this.posicionY -= 1;
+                break;
+            case 'D':
+                this.posicionY += 1;
+                break;
+            case 'R':
+                this.posicionX += 1;
+                break;
+            case 'L':
+                this.posicionX -= 1;
+                break;
         }
     }
 
-    public void ensuciar(Habitacion habitacion) {
-        if (Math.random() > .75) {
-            habitacion.ensuciar(posicionX, posicionY);
-        }
+    public void ensuciar(Habitacion habitacion){
+        if(Math.random() <= 0.25) habitacion.ensuciarBaldosa(posicionX, posicionY);
     }
 }
