@@ -45,8 +45,9 @@ public class Habitacion {
 
         for (int i = 0; i < baldosas.length; i++){
             for (int j = 0; j < baldosas[i].length; j++){
-                if (baldosas[i][j].)
-                //comprobar si en la baldosa hay un gato
+                if (baldosas[i][j].HayUnGato()){
+                    
+                }
             }
         }
         for (int i = 0; i < gatos.length; i++){
