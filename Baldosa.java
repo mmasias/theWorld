@@ -1,33 +1,24 @@
 public class Baldosa {
-
     private int estado;
 
-    private static final int LIMPIO = 0;
-    private static final int MUY_SUCIO = 3;
-    private static final double[] PROBABILIDADES = {0.1, 0.2, 0.7, 0.9};
-
-    public Baldosa() {
-        estado = inicializaEstado();
+    public Baldosa(){
+        estado = definirEstadoInicial();
     }
 
-    private int inicializaEstado() {
-        double probabilidadMugre = Math.random();
+    private int definirEstadoInicial() {
+        double probabilidad = Math.random();
 
-        for (int i = MUY_SUCIO; i >= LIMPIO; i--) {
-            if (probabilidadMugre >= PROBABILIDADES[i]) {
-                return i;
-            }
-        }
-        return LIMPIO;
+        if(probabilidad <= 0.5) return 0;
+        else if (probabilidad <= 0.7) return 1;
+        else if (probabilidad <= 0.85) return 2;
+        else if (probabilidad <= 0.95) return 3;
+        else return 4;
     }
 
-    public int ver() {
+    public void ensuciarBaldosa() {
+        if (estado <= 3) estado++;
+    }
+    public int estadoDeSuciedad() {
         return estado;
-    }
-
-    public void ensucia() {
-        if (estado <= MUY_SUCIO) {
-            estado++;
-        }
     }
 }

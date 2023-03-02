@@ -1,42 +1,49 @@
 @startuml
 
 class Mundo{
-    - habitacion: Habitacion
-    - gato: Gato 
+    + Habitacion[]: habitaciones
     + Mundo()
-    + empezar()
+    - iniciarMundo()
+    - continuar
     + main()
 }
 
 class Habitacion {
-    - baldosas[][]: Baldosa
-    + largo: int
-    + ancho: int
-    +Habitacion(largo: int, ancho: int)
-    +imprimir()
-    +ensuciar(posicionX: int,posicionY: int)
-    -imprimeLinea()
-    -borraPantalla()
+    - Baldosa[][]: baldosas
+    - Gato[]: Gato
+    + int ancho
+    + int largo
+    + Habitacion(int ancho, int largo, int cantidadDeGatos)
+    + pasarTiempo()
+    - imprimirHabitacion()
+    - comprobarSiHayGato()
+    - parseSuciedad()
+    - printBorder()
+    + limpiarPantalla()
+    + ensuciarBaldosa(int posicionX, int posicionY)
+    + cambiarPosicionGato()
+    + posicionInicialGato()
 }
 
 class Baldosa{
-    - estado: int
+    + int estado
     + Baldosa()
-    - int inicializaEstado()
-    + int ver()
-    + ensucia()
+    - definirEstadoInicial()
+    + ensuciarBaldosa()
+    + verEstadoDeSuciedad()
 }
 
 class Gato{
-    + posicionX: int
-    + posicionY: int
-    + Gato(habitacion: Habitacion)
-    + mover(habitacion: Habitacion)
-    + ensuciar(habitacion: Habitacion)
+    + int posicionX
+    + int posicionY
+    + Gato(Habitacion habitacion)
+    + moverse(Habitacion habitacion)
+    + ensuciar(Habitacion habitacion)
+
 }
 
 Mundo *-D-- Habitacion
-Mundo *-R--- Gato
+
 Habitacion *-D-- Baldosa 
 Habitacion ... Gato
 
