@@ -4,6 +4,6 @@
 
 |||
 -|-
-![](/out/modelosUML/diagrama001/diagrama001.svg)|![](/images/powershell.png)
+![](/images/ClasesFoto.PNG)|![](/images/powershell.PNG)
 
 </div>

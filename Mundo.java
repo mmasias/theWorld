@@ -1,20 +1,29 @@
 import java.util.Scanner;
 
-class Mundo {
-
+public class Mundo {
     private Habitacion habitacion;
-    private Gato gato;
+    private Gato gato1;
+    private Gato gato2;
+    private Gato gato3;
+
 
     public Mundo() {
         habitacion = new Habitacion(15, 20);
-        gato = new Gato(habitacion);
+        gato1 = new Gato(habitacion);
+        gato2 = new Gato(habitacion);
+        gato3 = new Gato(habitacion);
+
     }
 
     void empezar() {
         do {
-            gato.mover(habitacion);
-            gato.ensuciar(habitacion);
-            habitacion.imprimir(gato);
+            gato1.mover(habitacion);
+            gato2.mover(habitacion);
+            gato3.mover(habitacion);
+            gato1.ensuciar(habitacion);
+            gato2.ensuciar(habitacion);
+            gato3.ensuciar(habitacion);
+            habitacion.imprimir(gato1,gato2,gato3);
         } while (quiereSeguir());
     }
 

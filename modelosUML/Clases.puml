@@ -1,0 +1,52 @@
+@startuml
+
+class Mundo{
+    - habitacion Habitacion
+    - gato Gato 
+    + Mundo()
+    + empezar()
+    + main()
+}
+
+class Habitacion {
+    - baldosas[][] Baldosa
+    + largo int
+    + ancho int
+    +Habitacion(largo int, ancho int)
+    +imprimir()
+    +ensuciar(posicionX int,posicionY int)
+    -imprimeLinea()
+    -borraPantalla()
+}
+
+class Baldosa{
+    - estado int
+    + Baldosa()
+    - int inicializaEstado()
+    + int ver()
+    + ensucia()
+}
+
+class Gato{
+    +Posicion posicion()
+    + Gato(habitacion Habitacion)
+    + mover(habitacion Habitacion)
+    + ensuciar(habitacion Habitacion)
+}
+
+class Posicion{
+    + posicionX int
+    + posicionY int
+}
+
+class Basura{
+  +Posicion posicion()
+  +String TipoDeBasura()
+}
+Mundo -D-- Habitacion
+Mundo -R--- Gato
+Habitacion -D-- Baldosa 
+Habitacion ... Gato
+Gato--- Posicion
+Baldosa --- Basura
+@enduml
