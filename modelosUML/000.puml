@@ -1,4 +1,32 @@
-Mundo *-- Habitacion
-Mundo *-- Gato
-Habitacion *-- Baldosa 
-Habitacion .. Gato
+@startuml
+
+class Mundo
+Mundo : Habitacion
+Mundo : RenderizadorHabitacion
+Mundo : void empezar()
+
+Mundo --> Habitacion
+
+class Habitacion
+Habitacion : Baldosa[][] baldosas
+Habitacion : Gato[] gatos
+Habitacion : int tamaño
+Habitacion : ensuciar()
+Habitacion : moverGatos()
+
+Habitacion --> Gato
+Habitacion --> Baldosa
+
+class Baldosa
+Baldosa : Sueciedad suciedad
+Baldosa --> Suciedad
+
+class Suciedad
+Suciedad : void nivel
+Suciedad : void ensuciar()
+
+class Gato
+Gato : Posicion posicion
+Gato : boolean vaAEnsuciar()
+
+@enduml

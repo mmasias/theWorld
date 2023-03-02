@@ -1,28 +1,29 @@
 import java.util.Scanner;
 
-class Mundo {
-    private Habitacion habitacion;
-    private Gato gato;
+public final class Mundo {
+    private final RederizadorHabitacion rederizadorHabitacion;
+    private final Habitacion habitacion;
 
-    public Mundo() {
-        habitacion = new Habitacion(15, 20);
-        gato = new Gato(habitacion);
+    public Mundo(int numeroDeGatos, int tamano, double[] probabilidadesSuciedad) {
+        this.habitacion = new Habitacion(numeroDeGatos, tamano, probabilidadesSuciedad);
+        this.rederizadorHabitacion = new RederizadorHabitacion();
     }
 
-    void empezar() {
+    public void empezar() {
         do {
-            gato.mover(habitacion);
-            gato.ensuciar(habitacion);
-            habitacion.imprimir(gato);
-        } while (quiereSeguir());
+            habitacion.moverGatos();
+            habitacion.ensuciar();
+            rederizadorHabitacion.renderizar(habitacion);
+        }while (quiereSeguir());
     }
 
-    boolean quiereSeguir(){
+    private boolean quiereSeguir(){
         Scanner entrada = new Scanner(System.in);
         return !entrada.nextLine().equalsIgnoreCase("f");
     }
 
     public static void main(String[] args) {
-        new Mundo().empezar();
+        Mundo mundo = new Mundo(3, 20, new double[]{0.1, 0.2, 0.7, 0.9});
+        mundo.empezar();
     }
 }

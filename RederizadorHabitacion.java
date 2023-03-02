@@ -1,5 +1,3 @@
-package miversion;
-
 public final class RederizadorHabitacion {
     public void renderizar(Habitacion habitacion) {
         borraPantalla();

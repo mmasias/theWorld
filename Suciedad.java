@@ -1,5 +1,3 @@
-package miversion;
-
 public final class Suciedad {
     public static final int MINIMO_NIVEL = 0;
     public static final int MAXIMO_NIVEL = 3;
