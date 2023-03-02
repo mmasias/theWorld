@@ -22,4 +22,9 @@ public class Gato {
         }
     }
 
+    public void ensuciar(Baldosa baldosa) {
+        if (Math.random() > .75) {
+            baldosa.ensuciar();
+        }
+    }
 }

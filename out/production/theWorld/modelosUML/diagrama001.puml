@@ -9,13 +9,14 @@ class Mundo{
 
 class Habitacion {
     - baldosas[][]: Baldosa
-    - gato: Gato 
+    - gatos[]: Gato 
     + largo: int
     + ancho: int
     + Habitacion(largo: int, ancho: int)
-    + imprimir()
-    + ensuciar(posicionX: int,posicionY: int)
+    + pasarCiclo()
+    - imprimir()
     - imprimeLinea()
+    - imprimeHabitacion()
     - borraPantalla()
 }
 
@@ -24,19 +25,21 @@ class Baldosa{
     + Baldosa()
     - int inicializaEstado()
     + int ver()
-    + ensucia()
+    + ensuciar()
 }
 
 class Gato{
     + posicionX: int
     + posicionY: int
+    + habitacion: Habitacion
     + Gato(habitacion: Habitacion)
     + mover()
-    + ensuciar()
+    + ensuciar(Baldosa baldosa)
 }
 
 Mundo *-D- Habitacion
 Habitacion *-D- Baldosa 
 Habitacion *-- Gato
+Gato .l.> Baldosa
 
 @enduml
