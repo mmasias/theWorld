@@ -1,0 +1,32 @@
+class Mundo{
+    Habitacion sala
+    Mundo()
+}
+
+class Habitacion{
+    int largo
+    int ancho
+    Baldosa[][] baldosas
+    Gato[] gatos
+    Habitacion(int largo, int ancho)
+    void posicionador()
+}
+
+class Baldosa{
+    int nivelSuciedad
+    bool disponible
+    void ensuciar()
+}
+
+class Gato{
+    int x
+    int y
+    Gato(int iniX, int iniY)
+    void moverse()
+    void ensuciar() 
+}
+
+Mundo --- Habitacion
+
+Habitacion --- Gato
+Habitacion --- Baldosa
