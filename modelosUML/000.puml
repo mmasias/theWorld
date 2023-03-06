@@ -1,4 +1,11 @@
-Mundo *-- Habitacion
-Mundo *-- Gato
-Habitacion *-- Baldosa 
-Habitacion .. Gato
+@startuml ev1
+
+Mundo *--- Habitacion
+Mundo *--- Gato
+Habitacion *--- Baldosa 
+Habitacion ... Gato
+
+Movimiento <|... Gato
+
+
+@enduml

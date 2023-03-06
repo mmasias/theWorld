@@ -28,16 +28,22 @@ class Baldosa{
 }
 
 class Gato{
-    + posicionX: int
-    + posicionY: int
     + Gato(habitacion: Habitacion)
     + mover(habitacion: Habitacion)
     + ensuciar(habitacion: Habitacion)
 }
 
-Mundo *-D-- Habitacion
-Mundo *-R--- Gato
-Habitacion *-D-- Baldosa 
-Habitacion ... Gato
+class Movimiento {
+    + posicionX: int
+    + posicionY: int
+    + Movimiento(habitacion: Habitacion)
+    + mover(habitacion: Habitacion)
+}
 
+
+Mundo *--- Habitacion
+Mundo *--- Gato
+Habitacion *--- Baldosa 
+Habitacion ... Gato
+Movimiento ... Gato
 @enduml
