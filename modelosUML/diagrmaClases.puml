@@ -1,0 +1,75 @@
+@startuml diagramaClases
+
+class Mundo{
+
+    - habitacion: Habitacion
+    - gatosMundo[]: Gato 
+    + Mundo()
+    + empezar()
+    + main()
+    -Gato[] crearGatos()
+    -pasarCiclo()
+    -accionGato()
+    -imprimirGatos()
+}
+
+class Habitacion{
+
+    - baldosas[][]: Baldosa
+    + tamaño: Tamaño
+    + Habitacion(largo: int, ancho: int)
+    + imprimir()
+    + ensuciarBaldosa(posicion : Posicion)
+    -boolean gatoEnBaldosa()
+    -imprimeLinea()
+    -borraPantalla()
+}
+
+class Gato{
+
+    + posicion : Posicion
+    + Gato(habitacion: Habitacion)
+    + mover(habitacion: Habitacion)
+    + ensuciar(habitacion: Habitacion)
+
+}
+
+class Baldosa{
+
+    - estado: int
+    + Baldosa()
+    - int inicializaEstado()
+    + int ver()
+    + ensucia()
+
+}
+
+class Tamaño{
+    -ancho : int
+    -largo : int
+    +Tamaño()
+    +getAncho()
+    +getLargo()
+} 
+
+class Posicion{
+    - x : int
+    - y : int
+    +Posicion()
+    +getX()
+    +getY()
+    +setX(x : int)
+    +setY(y : int)
+}
+
+Mundo *--- Habitacion
+Mundo *----- Gato
+Habitacion *--- Baldosa 
+Habitacion ... Gato
+Habitacion *--- Tamaño
+Habitacion .... Posicion
+Tamaño .l.. Gato
+Gato *--- Posicion
+
+
+@enduml
