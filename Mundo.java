@@ -3,19 +3,44 @@ import java.util.Scanner;
 class Mundo {
 
     private Habitacion habitacion;
-    private Gato gato;
+    private Gato[] gatosMundo;
 
-    public Mundo() {
-        habitacion = new Habitacion(15, 20);
-        gato = new Gato(habitacion);
+    public Mundo(int cantidadGatos) {
+        habitacion = new Habitacion(20,15);
+        gatosMundo = crearGatos(cantidadGatos);
+    }
+
+    private Gato[] crearGatos(int cantidadGatos) {
+
+        gatosMundo = new Gato[cantidadGatos];
+
+        for (int i = 0; i<gatosMundo.length; i++){
+            gatosMundo[i] = new Gato(habitacion.tamaño);
+        }
+
+        return gatosMundo;
     }
 
     void empezar() {
         do {
-            gato.mover(habitacion);
-            gato.ensuciar(habitacion);
-            habitacion.imprimir(gato);
+            pasarCiclo();
         } while (quiereSeguir());
+    }
+
+    private void pasarCiclo() {
+        accionGato();
+        imprimirGatos();
+    }
+
+    private void accionGato() {
+        for (Gato gato : gatosMundo){
+            gato.mover(habitacion.tamaño);
+            gato.ensuciar(habitacion);
+        }
+    }
+
+    private void imprimirGatos() {
+       habitacion.imprimir(gatosMundo);
     }
 
     boolean quiereSeguir(){
@@ -24,6 +49,7 @@ class Mundo {
     }
 
     public static void main(String[] args) {
-        new Mundo().empezar();
+
+        new Mundo(4).empezar();
     }
 }

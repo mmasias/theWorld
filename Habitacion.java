@@ -1,14 +1,18 @@
 public class Habitacion {
 
     private Baldosa[][] baldosas;
-    public int largo, ancho;
+    public Tamaño tamaño;
 
-    public Habitacion(int largo, int ancho) {
-        this.largo = largo;
-        this.ancho = ancho;
-        baldosas = new Baldosa[this.largo][this.ancho];
-        for (int i = 0; i < this.largo; i++) {
-            for (int j = 0; j < this.ancho; j++) {
+    public Habitacion(int ancho, int largo) {
+        this.tamaño = new Tamaño(ancho, largo);
+        crearBaldosas();
+    }
+
+    private void crearBaldosas() {
+        baldosas = new Baldosa[tamaño.getLargo()][tamaño.getAncho()];
+
+        for (int i = 0; i < tamaño.getLargo(); i++) {
+            for (int j = 0; j < tamaño.getAncho(); j++) {
                 this.baldosas[i][j] = new Baldosa();
             }
         }
@@ -18,8 +22,8 @@ public class Habitacion {
         char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
-        for (int i = 0; i < largo; i++) {
-            for (int j = 0; j < this.ancho; j++) {
+        for (int i = 0; i < tamaño.getLargo(); i++) {
+            for (int j = 0; j < tamaño.getAncho(); j++) {
                 vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
                 System.out.print(" " + vistaBaldosa + " ");
             }
@@ -28,13 +32,13 @@ public class Habitacion {
         imprimeLinea();
     }
 
-    public void imprimir(Gato gato) {
+    public void imprimir(Gato[] gatos) {
         char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
-        for (int i = 0; i < largo; i++) {
-            for (int j = 0; j < ancho; j++) {
-                if (gato.posicionX == j && gato.posicionY == i) {
+        for (int i = 0; i < tamaño.getLargo() ; i++) {
+            for (int j = 0; j < tamaño.getAncho() ; j++) {
+                if (gatoEnBaldosa(i, j, gatos)) {
                     System.out.print(">G<");
                 } else {
                     vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
@@ -46,12 +50,16 @@ public class Habitacion {
         imprimeLinea();
     }
 
-    public void ensuciar(int posicionX, int posicionY) {
-        baldosas[posicionY][posicionX].ensucia();
+    private boolean gatoEnBaldosa(int i, int j, Gato[] gatos) {
+
+        for(Gato gato: gatos){
+            if (gato.posicion.getX() == j && gato.posicion.getY() == i) return true;
+        }
+        return false;
     }
 
     private void imprimeLinea() {
-        for (int j = 0; j < ancho; j++) {
+        for (int j = 0; j < tamaño.getAncho(); j++) {
             System.out.print("===");
         }
         System.out.println();
@@ -61,4 +69,9 @@ public class Habitacion {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+
+    public void ensuciar(Posicion posicion) {
+        baldosas[posicion.getY()][posicion.getX()].ensucia();
+    }
 }
+

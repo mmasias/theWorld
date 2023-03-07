@@ -1,28 +1,29 @@
 public class Gato {
 
-    public int posicionX, posicionY;
+    public Posicion posicion = new Posicion();
 
-    public Gato(Habitacion habitacion) {
-        posicionX = (int) (Math.random() * habitacion.ancho);
-        posicionY = (int) (Math.random() * habitacion.largo);
+    public Gato(Tamaño tamañoHabitación) {
+
+        posicion.setX((int) (Math.random() * tamañoHabitación.getAncho()));
+        posicion.setY( (int) (Math.random() * tamañoHabitación.getLargo()));
     }
 
-    public void mover(Habitacion habitacion) {
+    public void mover(Tamaño tamañoHabitación) {
         double aleatorio = Math.random();
-        if (aleatorio < .25 && posicionX + 1 < habitacion.ancho) {
-            posicionX++;
-        } else if (aleatorio < .5 && posicionX > 0) {
-            posicionX--;
-        } else if (aleatorio < .75 && posicionY + 1 < habitacion.largo) {
-            posicionY++;
-        } else if (aleatorio < 1 && posicionY > 0) {
-            posicionY--;
+        if (aleatorio < .25 && posicion.getX() + 1 < tamañoHabitación.getAncho()) {
+            posicion.setX(posicion.getX()+1);
+        } else if (aleatorio < .5 && posicion.getX() > 0) {
+            posicion.setX(posicion.getX()-1);
+        } else if (aleatorio < .75 && posicion.getY() + 1 < tamañoHabitación.getLargo()) {
+            posicion.setY(posicion.getY()+1);
+        } else if (aleatorio < 1 && posicion.getY() > 0) {
+            posicion.setY(posicion.getY()-1);
         }
     }
 
     public void ensuciar(Habitacion habitacion) {
         if (Math.random() > .75) {
-            habitacion.ensuciar(posicionX, posicionY);
+            habitacion.ensuciar(posicion);
         }
     }
 }
