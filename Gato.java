@@ -1,28 +1,51 @@
 public class Gato {
-
-    public int posicionX, posicionY;
-
-    public Gato(Habitacion habitacion) {
-        posicionX = (int) (Math.random() * habitacion.ancho);
-        posicionY = (int) (Math.random() * habitacion.largo);
+    private int posicionX;
+    private int posicionY;
+    
+    public Gato(int posicionX, int posicionY) {
+        this.posicionX = posicionX;
+        this.posicionY = posicionY;
     }
-
-    public void mover(Habitacion habitacion) {
-        double aleatorio = Math.random();
-        if (aleatorio < .25 && posicionX + 1 < habitacion.ancho) {
-            posicionX++;
-        } else if (aleatorio < .5 && posicionX > 0) {
-            posicionX--;
-        } else if (aleatorio < .75 && posicionY + 1 < habitacion.largo) {
-            posicionY++;
-        } else if (aleatorio < 1 && posicionY > 0) {
-            posicionY--;
+    
+public void mover(Direccion direccion) {
+        switch (direccion) {
+            case ARRIBA:
+                if (posicionY > 0) {
+                    posicionY--;
+                }
+                break;
+                
+            case ABAJO:
+                if (posicionY < habitacion.getAncho() - 1) {
+                    posicionY++;
+                }
+                break;
+                
+            case IZQUIERDA:
+                if (posicionX > 0) {
+                    posicionX--;
+                }
+                break;
+                
+            case DERECHA:
+                if (posicionX < habitacion.getLargo() - 1) {
+                    posicionX++;
+                }
+                break;
+                
+            default:
+                System.out.println("Dirección inválida");
         }
     }
-
+    
     public void ensuciar(Habitacion habitacion) {
-        if (Math.random() > .75) {
-            habitacion.ensuciar(posicionX, posicionY);
-        }
+        habitacion.ensuciar(posicionX, posicionY);
     }
+}
+
+public enum Direccion {
+    ARRIBA,
+    ABAJO,
+    IZQUIERDA,
+    DERECHA
 }

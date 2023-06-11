@@ -1,29 +1,25 @@
-import java.util.Scanner;
 
-class Mundo {
-
+public class Mundo {
     private Habitacion habitacion;
-    private Gato gato;
-
+    private Gato[] gatos;
+    
     public Mundo() {
-        habitacion = new Habitacion(15, 20);
-        gato = new Gato(habitacion);
+        habitacion = new Habitacion(10, 10); // Tamaño predeterminado de la habitación
+        gatos = new Gato[2]; // Crear un arreglo de dos gatos
+        
+        // Crear instancias de gatos y asignar coordenadas iniciales
+        gatos[0] = new Gato(0, 0);
+        gatos[1] = new Gato(5, 5);
     }
-
-    void empezar() {
-        do {
-            gato.mover(habitacion);
+    
+    public void empezar() {
+        habitacion.imprimir();
+        
+        for (Gato gato : gatos) {
+            gato.mover(Direccion.DERECHA); // Ejemplo de movimiento hacia la derecha
             gato.ensuciar(habitacion);
-            habitacion.imprimir(gato);
-        } while (quiereSeguir());
-    }
-
-    boolean quiereSeguir(){
-        Scanner entrada = new Scanner(System.in);
-        return !entrada.nextLine().equalsIgnoreCase("f");
-    }
-
-    public static void main(String[] args) {
-        new Mundo().empezar();
+        }
+        
+        habitacion.imprimir();
     }
 }
