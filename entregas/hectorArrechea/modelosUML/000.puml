@@ -1,0 +1,9 @@
+@startuml ModeloDelDominio
+
+class Consola {}
+
+Mundo *-D-- Habitacion
+Habitacion *-D-- Baldosa 
+Habitacion ... Gato
+
+@enduml
