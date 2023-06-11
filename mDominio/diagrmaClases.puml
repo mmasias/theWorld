@@ -64,8 +64,8 @@ class RenderizadorMundo{
 
     - tamañoHabitacion : Tamaño
     + RenderizadorMundo (Tamaño : tamañoHabitacion)
-    + imprimir()
-    -boolean gatoEnBaldosa()
+    + imprimir(gatos : Gato[] , baldosas : Baldosa[][])
+    -boolean gatoEnBaldosa(i: int, j : int, gatos : Gato[])
     -imprimeLinea()
     -borraPantalla()
     +boolean quiereSeguir()
