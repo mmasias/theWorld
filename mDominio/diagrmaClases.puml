@@ -1,0 +1,98 @@
+@startuml diagramaClases
+
+class Mundo{
+
+    - habitacion: Habitacion
+    - gatosMundo[]: Gato
+    - renderizadorMundo : RenderizadorMundo
+    + Mundo(cantidadGatos : int , tamaño : Tamaño)
+    + empezar()
+    -Gato[] crearGatos(cantidadGatos : int)
+    -pasarCiclo()
+    -accionGato()
+}
+
+class Habitacion{
+
+    - baldosas[][]: Baldosa
+    + tamaño: Tamaño
+    + Habitacion(Tamaño tamaño)
+    - crearBaldosas()
+    + Baldosa[][] getBaldosas()
+    + ensuciar(posicion : Posicion)
+}
+
+class Gato{
+
+    + posicion : Posicion
+    - tamañoHabitacion : Tamaño
+    + Gato(Tamaño : tamañoHabitacion)
+    + mover()
+    + ensuciar(habitacion: Habitacion)
+
+}
+
+class Baldosa{
+
+    - estado: int
+    + Baldosa()
+    - int inicializaEstado()
+    + int ver()
+    + ensucia()
+
+}
+
+class Tamaño{
+    -ancho : int
+    -largo : int
+    +Tamaño()
+    +getAncho()
+    +getLargo()
+} 
+
+class Posicion{
+    - x : int
+    - y : int
+    +Posicion()
+    +getX()
+    +getY()
+    +setX(x : int)
+    +setY(y : int)
+}
+
+class RenderizadorMundo{
+
+    - tamañoHabitacion : Tamaño
+    + RenderizadorMundo (Tamaño : tamañoHabitacion)
+    + imprimir(gatos : Gato[] , baldosas : Baldosa[][])
+    -boolean gatoEnBaldosa(i: int, j : int, gatos : Gato[])
+    -imprimeLinea()
+    -borraPantalla()
+    +boolean quiereSeguir()
+}
+
+class MainMundo{
+
+    main(String[]): void
+}
+
+
+MainMundo ...> Mundo
+
+Mundo *--- Habitacion
+Mundo *--- Gato
+Mundo *--- RenderizadorMundo
+
+Habitacion *--- Baldosa 
+Habitacion <... Gato
+Habitacion ---> Tamaño
+Habitacion ...> Posicion
+
+
+Tamaño <--- Gato
+Gato *--- Posicion
+
+RenderizadorMundo ---> Tamaño
+
+
+@enduml

@@ -1,3 +1,5 @@
+package Modelo;
+
 public class Baldosa {
 
     private int estado;
