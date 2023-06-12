@@ -1,22 +1,27 @@
 @startuml
 
+class Main {
+    + main()
+}
+
 class Mundo{
     - habitacion: Habitacion
     - gato: Gato 
     + Mundo()
+    + imprimir(Gato[] gatos)
+    - hayUnGato(Gato[] gatos, int i, int j)
     + empezar()
-    + main()
 }
 
 class Habitacion {
-    - baldosas[][]: Baldosa
+    + baldosas[][]: Baldosa
     + largo: int
     + ancho: int
-    +Habitacion(largo: int, ancho: int)
-    +imprimir()
-    +ensuciar(posicionX: int,posicionY: int)
-    -imprimeLinea()
-    -borraPantalla()
+    + Habitacion(largo: int, ancho: int)
+    + imprimir()
+    + ensuciar(posicionX: int,posicionY: int)
+    - imprimeLinea()
+    - borraPantalla()
 }
 
 class Baldosa{
@@ -28,16 +33,22 @@ class Baldosa{
 }
 
 class Gato{
-    + posicionX: int
-    + posicionY: int
-    + Gato(habitacion: Habitacion)
-    + mover(habitacion: Habitacion)
-    + ensuciar(habitacion: Habitacion)
+    + Gato(Habitacion: habitacion)
+    + mover(Habitacion: habitacion)
+    + ensuciar(Habitacion: habitacion)
 }
 
-Mundo *-D-- Habitacion
-Mundo *-R--- Gato
-Habitacion *-D-- Baldosa 
-Habitacion ... Gato
+class Movimiento {
+    + posicionX: int
+    + posicionY: int
+    + Movimiento(Habitacion: habitacion)
+    + mover(Habitacion: habitacion)
+}
 
+Main *--- Mundo
+Mundo *--- Habitacion
+Mundo *--- Gato
+Habitacion *--- Baldosa 
+Habitacion ... Gato
+Movimiento ... Gato
 @enduml
