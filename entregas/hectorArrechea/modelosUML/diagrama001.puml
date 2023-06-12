@@ -1,0 +1,59 @@
+@startuml DiagramaDeClases
+
+class Consola {
+  - Consola()
+  + {static} void imprimir(String mensaje)
+  + {static} void imprimeLinea(int ancho)
+  + {static} void limpiaConsola()
+  + {static} boolean quiereSeguir()
+}
+
+class Mundo{
+    - habitacion: Habitacion
+    - {static} final int LARGO
+    - {static} final int ANCHO
+    - {static} final int CANTIDAD_DE_GATOS
+    + Mundo()
+    # void empezar()
+    + {static} void main()
+}
+
+class Habitacion {
+    - Baldosa[][] baldosas
+    - int largo 
+    - int ancho
+    - Gato[] gatos
+    + Habitacion(int largo, int ancho, int cantidadDeGatos)
+    + void pasarTiempo()
+    - void imprimir()
+    - Gato buscarGato(int posicionX, int posicionY)
+    + int getLargo()
+    + int getAncho()
+    + void ensuciar(int posicionX, int posicionY)
+}
+
+class Baldosa{
+    - int estado
+    - {static} final int LIMPIO
+    - {static} final int MUY_SUCIO
+    - {static} final double[] PROBABILIDADES
+    + Baldosa()
+    - int inicializaEstado()
+    + int getEstado()
+    + void aumentaSuciedad()
+}
+
+class Gato{
+    + int posicionX
+    + int posicionY
+    + Gato(Habitacion habitacion)
+    + void mover(Habitacion  habitacion)
+    - void mover(String direccion)
+    + void ensuciar(Habitacion Habitacion)
+}
+
+Mundo *-D-- Habitacion
+Habitacion *-D-- Baldosa 
+Habitacion ... Gato
+
+@enduml
