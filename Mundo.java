@@ -2,28 +2,25 @@ import java.util.Scanner;
 
 public class Mundo {
     private Habitacion habitacion;
-    private Gato gato1;
-    private Gato gato2;
-    private Gato gato3;
+    private  Gato[] arrayGatos;
 
 
-    public Mundo() {
+    public Mundo(int numeroDeGatos) {
         habitacion = new Habitacion(15, 20);
-        gato1 = new Gato(habitacion);
-        gato2 = new Gato(habitacion);
-        gato3 = new Gato(habitacion);
+        arrayGatos = new Gato[numeroDeGatos];
+        for(int i= 0;i<numeroDeGatos;i++){
+           arrayGatos[i]= new Gato(habitacion);
+        }
 
     }
 
     void empezar() {
         do {
-            gato1.mover(habitacion);
-            gato2.mover(habitacion);
-            gato3.mover(habitacion);
-            gato1.ensuciar(habitacion);
-            gato2.ensuciar(habitacion);
-            gato3.ensuciar(habitacion);
-            habitacion.imprimir(gato1,gato2,gato3);
+            for(int i= 0;i<arrayGatos.length;i++){
+                arrayGatos[i].mover(habitacion);
+                arrayGatos[i].ensuciar(habitacion);
+            }
+            habitacion.imprimir(arrayGatos);
         } while (quiereSeguir());
     }
 
@@ -33,6 +30,9 @@ public class Mundo {
     }
 
     public static void main(String[] args) {
-        new Mundo().empezar();
+        System.out.println("Cuantos gatos quieres?");
+        Scanner entrada = new Scanner(System.in);
+        int numero = entrada.nextInt();
+        new Mundo(numero).empezar();
     }
 }

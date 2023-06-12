@@ -27,17 +27,13 @@ public class Habitacion {
         imprimeLinea();
     }
 
-    public void imprimir(Gato gato1,Gato gato2,Gato gato3) {
+    public void imprimir(Gato[] arraygatos) {
         char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
         for (int i = 0; i < largo; i++) {
             for (int j = 0; j < ancho; j++) {
-                if (gato1.posicion.posicionX == j && gato1.posicion.posicionY == i) {
-                    System.out.print(">G<");
-                }else if (gato2.posicion.posicionX == j && gato2.posicion.posicionY == i) {
-                    System.out.print(">G<");
-                }else if (gato3.posicion.posicionX == j && gato3.posicion.posicionY == i) {
+                if (comprobarGato(j,i,arraygatos)==true) {
                     System.out.print(">G<");
                 } else {
                     vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
@@ -63,5 +59,13 @@ public class Habitacion {
     private void borraPantalla() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+    private boolean comprobarGato(int posicionX, int posicionY,Gato[] arrayGatos) {
+        for (Gato gato : arrayGatos) {
+            if(posicionX == gato.posicion.posicionX && posicionY == gato.posicion.posicionY){
+                return true;
+            }
+        }
+        return false;
     }
 }
