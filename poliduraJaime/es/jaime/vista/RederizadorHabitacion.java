@@ -1,3 +1,7 @@
+package es.jaime.vista;
+
+import es.jaime.controlador.Habitacion;
+
 public final class RederizadorHabitacion {
     public void renderizar(Habitacion habitacion) {
         borraPantalla();

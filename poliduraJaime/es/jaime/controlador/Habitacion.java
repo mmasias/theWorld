@@ -1,3 +1,7 @@
+package es.jaime.controlador;
+
+import es.jaime.modelo.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +59,6 @@ public final class Habitacion {
     }
 
     private Posicion getPosicionAleatoriaSinColisiones() {
-        boolean hayColisiones = false;
         Posicion posicion;
 
         do {

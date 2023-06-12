@@ -1,3 +1,5 @@
+package es.jaime.modelo;
+
 public enum Direccion {
     ARRIBA(0, 1),
     ABAJO(0, -1),

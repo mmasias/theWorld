@@ -1,3 +1,5 @@
+package es.jaime.modelo;
+
 public final class Baldosa {
     private final Suciedad suciedad;
 
