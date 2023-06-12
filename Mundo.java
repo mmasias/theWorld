@@ -15,6 +15,7 @@ public class Mundo {
             gato.mover(habitacion);
             gato.ensuciar(habitacion);
             habitacion.imprimir(gato);
+            System.out.println("Para salir del programa, ingrese la letra 'f'");
         } while (!entrada.nextLine().equalsIgnoreCase("f"));
     }
 
