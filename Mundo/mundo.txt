@@ -2,18 +2,21 @@
 class Mundo
 Mundo *-- Habitacion
 Habitacion *-- Baldosa
-Habitacion -- Gato
 Mundo *--- Gato
 Gato : posicionX
 Gato : posicionY
 Gato : dibujo
-Gato : mover(posicionX, posicionY, nuevaPosicionX, nuevaPosicionY)
-Gato : ensuciar(posicionX, posicionY)
-Habitacion : tamañoAncho
-Habitacion : tamañoLargo
-Habitacion : arrayBaldosas[][]
-Habitacion : dibujar()
+Gato : mover(habitacion)
+Gato : ensuciar()
+Habitacion : ancho
+Habitacion : largo
+Habitacion : baldosas[][]
+Habitacion : imprimir()
+Habitacion : ensuciar()
 Baldosa : nivelSuciedad
+Baldosa : ver()
+Baldosa : ensucia()
 Mundo : gato
-Mundo : arrayHabitaciones[]
+Mundo : habitacion
+Mundo : empezar()
 @enduml
