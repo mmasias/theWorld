@@ -5,14 +5,12 @@ class Mundo {
     private Habitacion habitacion;
 
     public Mundo() {
-        habitacion = new Habitacion(15, 20);
+        habitacion = new Habitacion(15, 20, 4);
     }
 
     void empezar() {
         do {
-            habitacion.gato.mover();
-            habitacion.ensuciar();
-            habitacion.imprimir();
+            habitacion.pasarCiclo();
         } while (quiereSeguir());
     }
 
