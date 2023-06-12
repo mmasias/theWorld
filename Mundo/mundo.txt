@@ -1,8 +1,9 @@
 @startuml
 class Mundo
-Mundo *-- Habitacion
+Mundo --> Simulador
+Simulador *-- Habitacion
 Habitacion *-- Baldosa
-Mundo *--- Gato
+Simulador *--- Gato
 Gato : posicionX
 Gato : posicionY
 Gato : dibujo
@@ -16,7 +17,6 @@ Habitacion : ensuciar()
 Baldosa : nivelSuciedad
 Baldosa : ver()
 Baldosa : ensucia()
-Mundo : gato
-Mundo : habitacion
-Mundo : empezar()
+Simulador : habitacion
+Simulador : empezar()
 @enduml
