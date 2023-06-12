@@ -1,43 +1,28 @@
 public class Habitacion {
-
     private Baldosa[][] baldosas;
-    public int largo, ancho;
+    private int largo;
+    private int ancho;
 
     public Habitacion(int largo, int ancho) {
         this.largo = largo;
         this.ancho = ancho;
-        baldosas = new Baldosa[this.largo][this.ancho];
-        for (int i = 0; i < this.largo; i++) {
-            for (int j = 0; j < this.ancho; j++) {
-                this.baldosas[i][j] = new Baldosa();
-            }
-        }
-    }
-
-    public void imprimir() {
-        char vistaBaldosa;
-        borraPantalla();
-        imprimeLinea();
+        baldosas = new Baldosa[largo][ancho];
         for (int i = 0; i < largo; i++) {
-            for (int j = 0; j < this.ancho; j++) {
-                vistaBaldosa = " .oO#".charAt(this.baldosas[i][j].ver());
-                System.out.print(" " + vistaBaldosa + " ");
+            for (int j = 0; j < ancho; j++) {
+                baldosas[i][j] = new Baldosa();
             }
-            System.out.println();
         }
-        imprimeLinea();
     }
 
     public void imprimir(Gato gato) {
-        char vistaBaldosa;
         borraPantalla();
         imprimeLinea();
         for (int i = 0; i < largo; i++) {
             for (int j = 0; j < ancho; j++) {
-                if (gato.posicionX == j && gato.posicionY == i) {
+                if (gato.getPosicionX() == j && gato.getPosicionY() == i) {
                     System.out.print(">G<");
                 } else {
-                    vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
+                    char vistaBaldosa = " .oO#".charAt(baldosas[i][j].ver());
                     System.out.print(" " + vistaBaldosa + " ");
                 }
             }
@@ -60,5 +45,13 @@ public class Habitacion {
     private void borraPantalla() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    public int getLargo() {
+        return largo;
+    }
+
+    public int getAncho() {
+        return ancho;
     }
 }
