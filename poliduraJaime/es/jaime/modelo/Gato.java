@@ -1,3 +1,5 @@
+package es.jaime.modelo;
+
 public final class Gato {
     public Posicion posicion;
 

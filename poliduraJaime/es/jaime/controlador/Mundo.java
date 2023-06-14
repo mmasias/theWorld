@@ -1,3 +1,7 @@
+package es.jaime.controlador;
+
+import es.jaime.vista.RederizadorHabitacion;
+
 import java.util.Scanner;
 
 public final class Mundo {
@@ -20,10 +24,5 @@ public final class Mundo {
     private boolean quiereSeguir(){
         Scanner entrada = new Scanner(System.in);
         return !entrada.nextLine().equalsIgnoreCase("f");
-    }
-
-    public static void main(String[] args) {
-        Mundo mundo = new Mundo(3, 20, new double[]{0.1, 0.2, 0.7, 0.9});
-        mundo.empezar();
     }
 }
