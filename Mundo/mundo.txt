@@ -1,22 +1,25 @@
 @startuml
 class Mundo
-Mundo *-- Habitacion
+Mundo --> Simulador
+Simulador *-- Habitacion
 Habitacion *-- Baldosa
-Mundo *--- Gato
+Simulador *--- Gato
 Gato : posicionX
 Gato : posicionY
 Gato : dibujo
 Gato : mover(habitacion)
-Gato : ensuciar()
+Gato : ensuciar(habitacion)
 Habitacion : ancho
 Habitacion : largo
 Habitacion : baldosas[][]
-Habitacion : imprimir()
-Habitacion : ensuciar()
+Habitacion : imprimir(listaGatos)
+Habitacion : ensuciar(posicionX, posicionY)
+Habitacion : dibujar()
 Baldosa : nivelSuciedad
 Baldosa : ver()
 Baldosa : ensucia()
-Mundo : gato
-Mundo : habitacion
-Mundo : empezar()
+Simulador : habitacion
+Simulador : empezar()
+Simulador : preguntarNumeroGatos()
+Simulador : quiereSeguir()
 @enduml
