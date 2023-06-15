@@ -15,10 +15,10 @@ public class Baldosa {
         else return 4;
     }
 
-    public void ensuciarBaldosa() {
+    public void ensuciar() {
         if (estado <= 3) estado++;
     }
-    public int estadoDeSuciedad() {
+    public int suciedad() {
         return estado;
     }
 }

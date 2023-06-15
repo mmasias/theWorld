@@ -16,8 +16,8 @@ class Habitacion {
     + Habitacion(int ancho, int largo, int cantidadDeGatos)
     + pasarTiempo()
     - imprimirHabitacion()
-    - comprobarSiHayGato()
-    - parseSuciedad()
+    - hayGato()
+    - parsear()
     - printBorder()
     - limpiarPantalla()
     + ensuciarBaldosa(int posicionX, int posicionY)
@@ -29,8 +29,8 @@ class Baldosa{
     + int estado
     + Baldosa()
     - definirEstadoInicial()
-    + ensuciarBaldosa()
-    + verEstadoDeSuciedad()
+    + ensuciar()
+    + suciedad()
 }
 
 class Gato{
